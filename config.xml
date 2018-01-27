@@ -3,12 +3,12 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "hk.edu.lfis.cartesetloci"
+        id        = "hk.edu.lfis.cartesqdc"
         version   = "1.0">
 
-    <name>Cartes et Loci</name>
+    <name>Cartes QDC</name>
 
-    <description>Cartes pour méthode des loci (palais de la mémoire)</description>
+    <description>Cartes pour réviser son cours</description>
 
     <author href="http://www.fis.edu.hk" email="labbal@lfis.edu.hk">Laurent Abbal et ses élèves</author>
 
