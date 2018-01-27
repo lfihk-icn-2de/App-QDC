@@ -56,19 +56,39 @@
 .material-icons {
     vertical-align: bottom;
 }
+.carte-container {
+  text-align:center;
+  height:100%;
+  width:100%;
+}
+.carte {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
 
-.button_l {position:absolute;top:10%;left:0;margin-left:-6px;}
-.button_r {position:absolute;top:10%;right:0;margin-right:-6px;}
-.button_lr {line-height:3.2;height:75px;}
+.carte-hover {
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  transform: rotateY(180deg);
+}
 
-.carte_obo_frame {width:100%;height:100%;padding:10px;background-color:#f9f9f9;text-align:center;}
-.carte_obo {max-width:100%;height:100%;}
+.side {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
 
-.cartes {display:none;height:100%;padding:20px 80px 20px 20px;margin:0px;}
-.cartes_table {padding:0px;margin:0px;height:100%;width:100%;}
-.cartes_row {min-height:25%;padding:0px;}
-.cartes_col {padding:0px;margin:0px;}
-.cartes_frame {position:relative;width:100%;height:100%;padding:4px;}
-.cartes_bg {height:100%;background-color:#f9f9f9;border-radius:4px;}
-.cartes_selected {position:absolute;padding:4px;}
-.cartes_displayed {cursor:pointer;pointer-events:auto;opacity:1;max-width:100%;max-height:100%;}
+.back {
+  transform: rotateX(180deg);
+}
+
+.fadein {
+  animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
