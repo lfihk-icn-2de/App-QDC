@@ -1,0 +1,90 @@
+<html style="height:100%;">
+<head>
+	<meta charset="utf-8">
+
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Cutomization-->
+	<link type="text/css" rel="stylesheet" href="css/styles.css"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<title>Cartes et Loci</title>
+</head>
+
+<body onload="display_question()" style="background-color:white;padding:0px;margin:0px;height:100%;">
+
+		<div class="carte-container">
+		  <div id="carte" class="carte" style="text-align:center;height:100%;width:100%;">
+		    <div id="question" class="side" style="text-align:center;height:100%;width:100%;"><img src="" onclick="display_response()" name="q" style="max-height:100%;max-width:100%" /></div>
+		    <div id="response" class="side back" style="text-align:center;height:100%;width:100%;"><img src="" onclick="next()" name="r" style="max-height:100%;max-width:100%" /></div>
+		  </div>
+		</div>
+
+	<!-- MENU -->
+	<div id="menu" class="fixed-action-btn" style="right:20px;bottom:20px;">
+		<a class="btn-floating" style="background-color:#2d5ba0;"><i class="large material-icons">layers</i></a>
+		<ul>
+			<li><a href="index.html" class="btn-floating blue-grey darken-3"><i class="material-icons">home</i></a></li>
+			<li><a href="" class="btn-floating blue-grey darken-3"><i class="material-icons">autorenew</i></a></li>
+		</ul>
+	</div>
+
+	<!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		imagesArray = ["01", "02", "03", "04", "05", "06", "07", "08"];
+		n = 0;
+		imagesArray = shuffle(imagesArray);
+
+		function display_question(){
+			if (n != 8) {
+				document.q.src = 'images/sport/Q' + imagesArray[n] + '.png';
+				document.r.src = 'images/sport/R' + imagesArray[n] + '.png';
+				document.getElementById("carte").classList.add("fadein");
+			} else {
+				document.getElementById("carte").innerHTML = '<div style="position:absolute;top:30%;width:100%;text-align:center;"><a href="index.html" class="btn-floating blue-grey darken-3" style="margin-right:20px;"><i class="material-icons">home</i></a><a href="" class="btn-floating blue-grey darken-3" style="margin-left:20px;"><i class="material-icons">autorenew</i></a></div>';
+			}
+		}
+
+		function display_response(){
+			document.getElementById("carte").classList.remove("fadein");
+			document.getElementById("carte").classList.add("carte-hover");
+			n++;
+		}
+
+		function next(){
+			document.getElementById("carte").classList.remove("carte-hover");
+			document.q.src = '';
+			document.r.src = '';
+			display_question();
+		}
+
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex;
+
+		  // While there remain elements to shuffle...
+		  while (0 !== currentIndex) {
+
+		    // Pick a remaining element...
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+
+		    // And swap it with the current element.
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		  }
+
+		  return array;
+		}
+
+	</script>
+
+	<script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>
